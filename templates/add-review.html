@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="form-page-container">
+        <h2>New Review</h2>
+
+        <div class="form-container">
+            <form action="{{ url_for('add_review' )}}" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="form-label for="title">Movie Name</label>
+                    <input type="text" id="title" name="title" placeholder="Enter the movie title" required>
+                </div>
+            
+                <div class="form-group">
+                    <label class="form-label" for="poster">Upload Poster</label>
+                    <label class="custom-file-label" for="poster">Choose file...</label>
+                    <input type="file" id="poster" name="poster" accept="image/png, image/jpeg" required hidden>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="rating">Stars</label>
+                        <select id="rating" name="rating" required>
+                                <option value="">Choose a rating</option>
+                                <option value="1">★☆☆☆☆ - 1 Star</option>
+                                <option value="2">★★☆☆☆ - 2 Stars</option>
+                                <option value="3">★★★☆☆ - 3 Stars</option>
+                                <option value="4">★★★★☆ - 4 Stars</option>
+                                <option value="5">★★★★★ - 5 Stars</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="watched_date">Watched Date</label>
+                        <input type="date" id="watched_date" name="watched_date" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="review">My Review</label>
+                    <textarea id="review" name="review" rows="5" placeholder="Write your thoughts here..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Add</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
